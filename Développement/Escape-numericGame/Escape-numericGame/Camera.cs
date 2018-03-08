@@ -47,7 +47,7 @@ namespace Escape_numericGame
 
             this.ProjectionMatrix = Matrix.CreatePerspectiveFieldOfView( 
                 MathHelper.ToRadians(45.0f), 
-                ((Game1)this.Game).graphics.GraphicsDevice.Viewport.AspectRatio,
+                ((Game1)this.Game).GetGraphicsDeviceManager().GraphicsDevice.Viewport.AspectRatio,
                 1.0f,
                 10000.0f);
 

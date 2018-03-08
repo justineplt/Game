@@ -16,19 +16,19 @@ namespace Escape_numericGame
     {
         public Texture2D sprite;
         public Vector2 position;
-        public int taille;
+        public Vector2 taille;
         private String chemin;
+        protected Game1 myGame;
 
-        public Objet2D(Game game, String chemin, int taille) : base(game)
+        public Objet2D(Game game, String chemin, Vector2 taille) : base(game)
         {
+            this.myGame = (Game1)this.Game;
             this.chemin = chemin;
             this.taille = taille;
         }
 
         public override void Initialize()
         {
-            this.position = new Vector2(this.Game.GraphicsDevice.PresentationParameters.BackBufferWidth / 2,
-                this.Game.GraphicsDevice.PresentationParameters.BackBufferHeight / 2);
             base.Initialize();
         }
 

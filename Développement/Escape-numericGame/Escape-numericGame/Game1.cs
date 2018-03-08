@@ -12,11 +12,13 @@ namespace Escape_numericGame
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
 
-        Texture2D texture;
+        //Texture2D texture;
 
-        SpriteFont textFont;
+        //SpriteFont textFont;
 
         Camera myCam;
+
+        int vie = 75;
 
         public Game1()
         {
@@ -35,8 +37,12 @@ namespace Escape_numericGame
         {
             // TODO: Add your initialization logic here
             myCam = new Camera(this);
-            myCam.setPosition(new Vector3(0.0f, 20.0f, 10.0f));
+            myCam.setPosition(new Vector3(0.0f, 0.0f, 0.0f));
             myCam.setLookAt(new Vector3(0.0f, 0.0f, 0.0f));
+            this.Components.Add(myCam);
+
+            BarreVie barreVie = new BarreVie(this, "barreDeVie", new Vector2(110,45));
+            this.Components.Add(barreVie);
 
             base.Initialize();
         }
@@ -83,7 +89,7 @@ namespace Escape_numericGame
         /// <param name="gameTime">Provides a snapshot of timing values.</param>
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.CornflowerBlue);
+            GraphicsDevice.Clear(Color.White);
 
             // TODO: Add your drawing code here
             this.spriteBatch.Begin();
@@ -95,6 +101,32 @@ namespace Escape_numericGame
         public Camera getCamera()
         {
             return this.myCam;
+        }
+
+        public GraphicsDeviceManager GetGraphicsDeviceManager()
+        {
+            return this.graphics;
+        }
+
+        public SpriteBatch GetSpriteBatch()
+        {
+            return this.spriteBatch;
+        }
+
+        public int getVie()
+        {
+            return this.vie;
+        }
+
+        public void setVie(int nouvelleVie)
+        {
+            if (nouvelleVie <= 0 )
+            {
+                this.vie = 0;
+            } else
+            {
+                this.vie = nouvelleVie;
+            }
         }
     }
 }
